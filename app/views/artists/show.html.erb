@@ -1,0 +1,20 @@
+<h1> <%= @artist.name %> </h1>
+<br>
+<br>
+
+<table>
+    <tr>
+        <th>Image </th>
+        <td> <%= image_tag(@artist.img, size: "100x100") %> </td>
+    <tr>
+
+    <tr>
+        <th>Artist </th>
+        <td> <%= @artist.name %> </td>
+    <tr>
+
+    <tr>
+        <th>Hometown </th>
+        <td> <%= @artist.hometown %> </td>
+    <tr>
+</table>

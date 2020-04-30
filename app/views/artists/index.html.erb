@@ -1,0 +1,34 @@
+<h1>All the Artists</h1>
+
+<%= link_to "Add an Artist", new_artist_path %>
+<br>
+<br>
+
+<table>
+<tr>
+    <th> Artist </th>
+    <th> Image </th>
+    <th> Hometown </th>
+    <th> Edit </th>
+    <th> Delete </th>
+</tr>
+
+<% @artists.each do |artist| %>
+<tr>
+    <td> <%= link_to artist.name, artist_path(artist) %> </td>
+    <td> <%= image_tag(artist.img, size: "100x100") %> </td>
+    <td> <%= artist.hometown %> </td>
+
+    <td> <a href="<%= edit_artist_path(artist) %> ">
+    Edit Artist
+    </td>
+
+    <td> <a 
+    data-confirm="Are you sure you want to delete <%= artist.name %>"
+    href="/artists/<%= artist.id %>" data-method="delete">
+    Delete Artist
+    </td>
+</tr>
+<% end %>
+
+</table>

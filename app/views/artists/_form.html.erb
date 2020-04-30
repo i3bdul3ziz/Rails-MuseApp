@@ -1,0 +1,22 @@
+<%= form_for @artist do |f| %>
+
+<div>
+    <% # <label>Name</label> %>
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+</div>
+
+<div>
+    <% # <label>Hometown</label> %>
+    <%= f.label :hometown, "Hometown" %>
+    <%= f.text_field :hometown %>
+</div>
+
+<div>
+    <% # <label>Image</label> %>
+    <%= f.label :img, "Image" %>
+    <%= f.text_field :img %>
+</div>
+
+<%= f.submit "Submit"%>
+<% end %>
