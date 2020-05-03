@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  # get 'albums/index'
+  # get 'albums/new'
+  # get 'albums/create'
+  # get 'albums/destroy'
+  # get 'albums/show'
   get 'artists/index'
   # get '/artists/index' to: 'artists#index'
 
@@ -12,8 +17,10 @@ Rails.application.routes.draw do
   delete "artists/:id", to: "artists#delete"
 
   root 'artists#index'
-
-  resources :artists
+  #  artists/1/albums/new
+  resources :artists do
+    resources :albums
+  end
 
   # get '/', to: 'artists#index'
 
