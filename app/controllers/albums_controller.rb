@@ -10,13 +10,18 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
-    # @artist = Artist.find(params[:artist_id])
+    @artist = Artist.find(params[:artist_id])
 
     if @album.save
-      redirect_to artists_path
+      redirect_to artist_path(@artist)
     else
       render :new
     end
+  end
+
+  def option
+    @artists = Artist.all
+    @album = Album.new
   end
 
   def destroy

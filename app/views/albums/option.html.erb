@@ -1,7 +1,7 @@
-<h1>Albums#new</h1>
-<p>Find me in app/views/albums/new.html.erb</p>
+<h1>Option#For#New#Album</h1>
 
-<%= form_for [@artist, @album] do |f|%>
+
+<%= form_for @album do |f| %>
 <div>
     <%= f.label :name, "Name" %>
     <%= f.text_field :name, class: "form-control" %>
@@ -17,8 +17,10 @@
     <%= f.text_field :year, class: "form-control" %>
 </div>
 
-<%= f.hidden_field :artist_id, :value => @artist.id %>
+<div>
+    <%= f.label :artist_id, "Artist Name" %>
+    <%= f.select :artist_id, options_from_collection_for_select(@artists, "id", "name"), {}, { class: "form-control"} %>
+</div>
 
 <%= f.submit "Add Album", class: "btn btn-block btn-warning"%>
-
 <% end %>

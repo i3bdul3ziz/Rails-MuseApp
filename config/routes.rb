@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  # get 'albums/index'
-  # get 'albums/new'
-  # get 'albums/create'
-  # get 'albums/destroy'
-  # get 'albums/show'
-  get 'artists/index'
-  # get '/artists/index' to: 'artists#index'
-
+ 
   get 'artists/show'
   get 'artists/new'
   post 'artists/create'
@@ -21,6 +14,9 @@ Rails.application.routes.draw do
   resources :artists do # /artist/
     resources :albums # /artist/artist_id/albums/
   end
+
+  get "albums/option", to: "albums#option"
+  resources :albums 
 
   # get '/', to: 'artists#index'
 
