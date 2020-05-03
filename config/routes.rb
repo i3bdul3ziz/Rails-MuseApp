@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
   root 'artists#index'
   #  artists/1/albums/new
-  resources :artists do
-    resources :albums
+  resources :artists do # /artist/
+    resources :albums # /artist/artist_id/albums/
   end
 
   # get '/', to: 'artists#index'
