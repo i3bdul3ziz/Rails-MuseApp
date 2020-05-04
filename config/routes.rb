@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  devise_for :users
   resources :songs 
   # /songs/1 GET DELETE PATCH PUT 
   # /songs/ POST GET
