@@ -1,2 +1,27 @@
 <h1>Albums#show</h1>
 <p>Find me in app/views/albums/show.html.erb</p>
+
+<%= @album.name %>
+
+<table class="table">
+    <thead>
+        <td>Name</td>
+        <td> Url </td>
+        <td> Album </td>
+    </thead>
+    <tbody>
+    <% @album.songs.each do |song| %>
+       <tr>
+        <td><%= song.name %></td>
+        <td> 
+            <audio controls>
+                <source src="<%= song.url %>" type="audio/mpeg">
+            </audio>
+         </td>
+         <td><%= song.album.name %></td>
+        </tr>
+    <% end %>
+       
+    </tbody>
+
+</table>
