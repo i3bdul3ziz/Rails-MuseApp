@@ -1,20 +1,28 @@
-<h1> <%= @artist.name %> </h1>
-<br>
-<br>
+<%= link_to "New Album", new_artist_album_path(@artist) %>
 
-<table>
-    <tr>
-        <th>Image </th>
-        <td> <%= image_tag(@artist.img, size: "100x100") %> </td>
-    <tr>
-
-    <tr>
-        <th>Artist </th>
-        <td> <%= @artist.name %> </td>
-    <tr>
-
-    <tr>
-        <th>Hometown </th>
-        <td> <%= @artist.hometown %> </td>
-    <tr>
-</table>
+<div class="row">
+  <div class="col-md-3">
+    <h1><%= @artist.name %></h1>
+    <div><%= image_tag(@artist.img, size: "100x100") %></div>
+    <div><%= @artist.hometown %></div>
+  </div>
+  <div class="col-md-9">
+    <table class="table">
+      <thead>
+        <td>Name</td>
+        <td>Cover</td>
+        <td>Year</td>
+      </thead>
+      <tbody>
+          <%# @artist.albums  %>
+        <% @artist.albums.each do |album | %>
+           <tr>
+            <td> <%= album.name %> </td>
+            <td><%= image_tag(album.cover, size: "100x100") %></td>
+            <td><%= album.year %></td>
+           </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
